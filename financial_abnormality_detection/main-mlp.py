@@ -262,3 +262,15 @@ Epoch: 980, Train Loss: 0.0631, Valid Loss: 0.0637, Train AUC: 73.74, Valid AUC:
 Epoch: 990, Train Loss: 0.0631, Valid Loss: 0.0638, Train AUC: 73.50, Valid AUC: 71.74
 Epoch: 1000, Train Loss: 0.0631, Valid Loss: 0.0637, Train AUC: 73.57, Valid AUC: 71.81
 """
+
+
+Epoch: 100, Train Loss: 0.0654, Valid Loss: 0.0658, Train AUC: 72.23, Valid AUC: 71.15
+Epoch: 200, Train Loss: 0.0637, Valid Loss: 0.0641, Train AUC: 72.74, Valid AUC: 71.53
+Epoch: 300, Train Loss: 0.0633, Valid Loss: 0.0637, Train AUC: 73.02, Valid AUC: 71.70
+Epoch: 400, Train Loss: 0.0632, Valid Loss: 0.0637, Train AUC: 73.34, Valid AUC: 71.83
+Epoch: 500, Train Loss: 0.0633, Valid Loss: 0.0638, Train AUC: 73.57, Valid AUC: 71.81
+Epoch: 600, Train Loss: 0.0631, Valid Loss: 0.0637, Train AUC: 73.38, Valid AUC: 71.82
+Epoch: 700, Train Loss: 0.0632, Valid Loss: 0.0638, Train AUC: 73.66, Valid AUC: 71.69
+Epoch: 800, Train Loss: 0.0632, Valid Loss: 0.0639, Train AUC: 73.58, Valid AUC: 71.66
+Epoch: 900, Train Loss: 0.0631, Valid Loss: 0.0637, Train AUC: 73.43, Valid AUC: 71.71
+Epoch: 1000, Train Loss: 0.0631, Valid Loss: 0.0637, Train AUC: 73.57, Valid AUC: 71.81

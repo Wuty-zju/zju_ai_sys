@@ -61,18 +61,18 @@ def model_fit(train_data, model_type="linear"):
     model.fit(train_x, train_y)
 
     # 保存模型
-    joblib.dump(model, f"adult_mortality_prediction/{model_type}_model.pkl")
-    joblib.dump(imputer, "adult_mortality_prediction/imputer.pkl")
-    joblib.dump(scaler, "adult_mortality_prediction/scaler.pkl")
+    joblib.dump(model, f"{model_type}_model.pkl")
+    joblib.dump(imputer, "imputer.pkl")
+    joblib.dump(scaler, "scaler.pkl")
 
     return model
 
 # 预测函数
 def predict(test_data, model_type="linear"):
     # 加载模型及预处理器
-    loaded_model = joblib.load(f"adult_mortality_prediction/{model_type}_model.pkl")
-    imputer = joblib.load("adult_mortality_prediction/imputer.pkl")
-    scaler = joblib.load("adult_mortality_prediction/scaler.pkl")
+    loaded_model = joblib.load(f"{model_type}_model.pkl")
+    imputer = joblib.load("imputer.pkl")
+    scaler = joblib.load("scaler.pkl")
 
     # 预处理测试数据
     test_data_norm, _, _ = preprocess_data(test_data, imputer, scaler)
@@ -100,7 +100,7 @@ def evaluate_model(train_data, model_type="linear"):
 
 # 读取训练数据
 if __name__ == "__main__":
-    train_data = pd.read_csv('adult_mortality_prediction/data/train_data.csv')
+    train_data = pd.read_csv('data/train_data.csv')
 
     # 训练并评估不同模型
     for model_type in ["linear", "random_forest", "gradient_boosting", "xgboost"]:
