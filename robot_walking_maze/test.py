@@ -78,7 +78,7 @@ class Robot(TorchRobot):
         reward = self.maze.move_robot(action)
         return action, reward
     
-maze = Maze(maze_size=20) 
+maze = Maze(maze_size=10) 
 print(maze)
 
 robot = Robot(maze=maze)
