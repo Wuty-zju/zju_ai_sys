@@ -137,7 +137,7 @@ def test(model, data, split_idx, evaluator):
             eval_results[key] = evaluator.eval(data.y[node_id], y_pred[node_id])[eval_metric]
     return eval_results, losses  # 返回评估结果和损失
 
-# ==================== 5. 训练模型 ====================
+# ==================== 5. 训练、保存并加载最佳模型 ====================
 best_valid_auc = 0  # 初始化最佳验证集 AUC
 best_model_state = None  # 用于保存最佳模型状态
 
@@ -161,11 +161,9 @@ print("训练完成。")
 print(f"最佳验证集 AUC：{best_valid_auc * 100:.2f}%")
 print(f"最佳模型已保存至 {os.path.join(save_dir, model_filename)}")
 
-# ==================== 6. 保存并加载最佳模型 ====================
-# 加载最佳模型
 model.load_state_dict(torch.load(os.path.join(save_dir, model_filename), map_location=device))
 
-# ==================== 7. 定义测试并保存预测结果的函数 ====================
+# ==================== 6. 定义测试并保存预测结果的函数 ====================
 def test_and_save_predictions(model, data, save_path):
     """
     运行模型的前向传播，并保存所有节点的预测结果
@@ -191,7 +189,7 @@ predictions_save_path = os.path.join(
 test_and_save_predictions(model, data, predictions_save_path)
 
 '''
-# ==================== 8. 定义测试-预测函数 ====================
+# ==================== 7. 定义测试-预测函数 ====================
 def predict(data, node_id):
     """
     加载模型并在 MoAI 平台进行预测
