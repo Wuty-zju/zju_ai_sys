@@ -163,7 +163,7 @@ def load_best_model(model, save_dir):
     model.load_state_dict(torch.load(os.path.join(save_dir, 'best_mlp_model.pt')))
     return model
 
-# ==================== 测试并保存预测结果的函数 ====================
+# ==================== 测试函数 ====================
 def predict(model, data, node_id):
     """
     预测指定节点的标签概率。
