@@ -9,10 +9,9 @@ from utils.evaluator import Evaluator
 import numpy as np
 import os
 
-# ==================== 1. 设置设备（GPU 或 CPU） ====================
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-# ==================== 2. 数据加载和预处理 ====================
+# ==================== 数据加载和预处理 ====================
 # 数据路径设置
 path = './datasets/632d74d4e2843a53167ee9a1-momodel/'  # 数据保存路径
 save_dir = './results/'  # 模型保存路径
@@ -48,7 +47,7 @@ data = data.to(device)
 row, col, _ = data.adj_t.coo()  # 获取 COO 格式的行、列索引
 data.edge_index = torch.stack([row, col], dim=0)  # 构建 edge_index 矩阵，形状为 [2, num_edges]
 
-# ==================== 3. 定义模型 ====================
+# ==================== 定义模型 ====================
 class GraphSAGE(nn.Module):
     def __init__(self, in_channels, hidden_channels, out_channels):
         super(GraphSAGE, self).__init__()
@@ -99,7 +98,7 @@ model = GraphSAGE(
     out_channels=out_channels
 ).to(device)
 
-# ==================== 4. 定义训练和评估函数 ====================
+# ==================== 训练和评估函数 ====================
 # 训练超参数设置
 epochs = 20           # 训练轮数
 lr = 0.005              # 学习率
@@ -137,7 +136,7 @@ def test(model, data, split_idx, evaluator):
             eval_results[key] = evaluator.eval(data.y[node_id], y_pred[node_id])[eval_metric]
     return eval_results, losses  # 返回评估结果和损失
 
-# ==================== 5. 训练、保存并加载最佳模型 ====================
+# ==================== 训练、保存并加载最佳模型 ====================
 best_valid_auc = 0  # 初始化最佳验证集 AUC
 best_model_state = None  # 用于保存最佳模型状态
 
@@ -163,7 +162,7 @@ print(f"最佳模型已保存至 {os.path.join(save_dir, model_filename)}")
 
 model.load_state_dict(torch.load(os.path.join(save_dir, model_filename), map_location=device))
 
-# ==================== 6. 定义测试并保存预测结果的函数 ====================
+# ==================== 测试并保存预测结果函数 ====================
 def test_and_save_predictions(model, data, save_path):
     """
     运行模型的前向传播，并保存所有节点的预测结果
@@ -189,7 +188,7 @@ predictions_save_path = os.path.join(
 test_and_save_predictions(model, data, predictions_save_path)
 
 '''
-# ==================== 7. 定义测试-预测函数 ====================
+# ==================== 测试-预测函数 ====================
 def predict(data, node_id):
     """
     加载模型并在 MoAI 平台进行预测

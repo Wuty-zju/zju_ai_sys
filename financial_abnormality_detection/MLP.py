@@ -6,10 +6,9 @@ from utils import DGraphFin
 from utils.evaluator import Evaluator
 import os
 
-# ==================== 1. 设置设备（GPU 或 CPU） ====================
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-# ==================== 2. 数据加载和预处理 ====================
+# ==================== 数据加载和预处理 ====================
 # 路径和参数设置
 path = './datasets/632d74d4e2843a53167ee9a1-momodel/'  # 数据保存路径
 save_dir = './results/'  # 模型保存路径
@@ -36,7 +35,7 @@ train_idx = split_idx['train']
 # 将数据移动到设备上（GPU 或 CPU）
 data = data.to(device)
 
-# ==================== 3. 定义模型 ====================
+# ==================== 定义模型 ====================
 class MLP(nn.Module):
     def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout, batchnorm=True):
         super(MLP, self).__init__()
@@ -69,7 +68,7 @@ class MLP(nn.Module):
         x = self.lins[-1](x)
         return F.log_softmax(x, dim=-1)
 
-# ==================== 4. 定义训练和评估函数 ====================
+# ==================== 训练和评估函数 ====================
 # 训练超参数设置
 num_layers = 5
 hidden_channels = 128
@@ -121,7 +120,7 @@ def test(model, data, split_idx, evaluator):
             eval_results[key] = evaluator.eval(data.y[node_id].squeeze().long(), y_pred)['auc']
     return eval_results, losses, y_pred
 
-# ==================== 5. 训练模型 ====================
+# ==================== 训练模型 ====================
 def train_model(model, data, split_idx, optimizer, evaluator, save_dir, epochs=1000, log_steps=10):
     """
     执行模型训练并保存最佳模型。
@@ -153,7 +152,7 @@ def train_model(model, data, split_idx, optimizer, evaluator, save_dir, epochs=1
             
 train_model(model, data, split_idx, optimizer, evaluator, save_dir)
 
-# ==================== 6. 保存并加载最佳模型 ====================
+# ==================== 保存并加载最佳模型 ====================
 def load_best_model(model, save_dir):
     """
     加载最佳模型权重。
@@ -164,7 +163,7 @@ def load_best_model(model, save_dir):
     model.load_state_dict(torch.load(os.path.join(save_dir, 'best_mlp_model.pt')))
     return model
 
-# ==================== 7. 定义测试并保存预测结果的函数 ====================
+# ==================== 测试并保存预测结果的函数 ====================
 def predict(model, data, node_id):
     """
     预测指定节点的标签概率。
