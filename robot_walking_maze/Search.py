@@ -6,7 +6,6 @@ from Runner import Runner
 from QRobot import QRobot
 from ReplayDataSet import ReplayDataSet
 from torch_py.MinDQNRobot import MinDQNRobot as TorchRobot # PyTorch版本
-from keras_py.MinDQNRobot import MinDQNRobot as KerasRobot # Keras版本
 import matplotlib.pyplot as plt
 
 # ==================== 移动方向字典 ====================

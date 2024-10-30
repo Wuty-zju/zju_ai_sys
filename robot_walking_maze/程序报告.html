@@ -7527,26 +7527,29 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1-%E5%AE%9E%E9%AA%8C%E6%A6%82%E8%A6%81">1 实验概要<a class="anchor-link" href="#1-%E5%AE%9E%E9%AA%8C%E6%A6%82%E8%A6%81">¶</a></h2><h3 id="1.1-%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9">1.1 实验内容<a class="anchor-link" href="#1.1-%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9">¶</a></h3><p>在本实验中，要求分别使用基础搜索算法和 Deep QLearning 算法，完成机器人自动走迷宫。</p>
-<p><img alt="No description has been provided for this image" src="https://imgbed.momodel.cn/20200914145238.png" width="40%"/></p>
-<p>如上图所示，左上角的红色椭圆既是起点也是机器人的初始位置，右下角的绿色方块是出口。<br/>
-游戏规则为：从起点开始，通过错综复杂的迷宫，到达目标点(出口)。</p>
+<h2 id="1-%E5%AE%9E%E9%AA%8C%E6%A6%82%E8%A6%81">1 实验概要<a class="anchor-link" href="#1-%E5%AE%9E%E9%AA%8C%E6%A6%82%E8%A6%81">¶</a></h2><h3 id="1.1-%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9">1.1 实验内容<a class="anchor-link" href="#1.1-%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9">¶</a></h3><p>在这个实验中，目标是使用基础搜索算法和 Deep Q-Learning 算法来完成机器人自动走迷宫的任务。实验内容包括：</p>
 <ul>
-<li><p>在任一位置可执行动作包括：向上走 <code>'u'</code>、向右走 <code>'r'</code>、向下走 <code>'d'</code>、向左走 <code>'l'</code>。</p>
-</li>
-<li><p>执行不同的动作后，根据不同的情况会获得不同的奖励，具体而言，有以下几种情况：</p>
+<li><p><strong>迷宫描述</strong>：</p>
 <ul>
-<li><p>撞墙</p>
+<li><p>起点：左上角的红色椭圆。</p>
 </li>
-<li><p>走到出口</p>
+<li><p>终点：右下角的绿色方块。</p>
 </li>
-<li><p>其余情况</p>
+</ul>
+</li>
+<li><p><strong>游戏规则</strong>：</p>
+<ul>
+<li><p>机器人可以执行的动作包括：向上走 <code>'u'</code>、向右走 <code>'r'</code>、向下走 <code>'d'</code>、向左走 <code>'l'</code>。</p>
+</li>
+<li><p>不同动作会根据情况获得不同的奖励，例如撞墙、走到出口等。</p>
 </li>
 </ul>
 </li>
 </ul>
+<p>实验的目的是通过不同算法的实现，比较其在解决迷宫问题上的效果。</p>
 <h3 id="1.2-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E6%A6%82%E8%A6%81">1.2 实验结果概要<a class="anchor-link" href="#1.2-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E6%A6%82%E8%A6%81">¶</a></h3><p>A* 算法利用启发式函数计算出当前节点到目标节点的估计代价，进而逐步扩展路径至终点。实验表明，A* 算法能够迅速找到从起点到终点的最短路径，在中小规模迷宫上表现出高效性。然而，由于需要广泛搜索，随着迷宫复杂度和规模增大，计算效率显著下降。此方法适用于环境已知的场景，但难以应对未知或动态迷宫环境。所以，A*算法适用于较小规模、结构稳定的迷宫，能保证最优解，但计算量随规模显著增加。</p>
 <p>在DQN算法中，通过强化学习训练，机器人学习了在迷宫中的策略。DQN模型通过经验回放和目标网络实现稳定训练，模型损失值在训练过程中逐步收敛，最终学习到一条稳定的最优路径。实验显示，DQN在反复探索后能够自主找到最短路径，对大规模迷宫表现出较强的适应性。此外，DQN模型在遇到新迷宫或动态变化的迷宫时也能通过学习适应，展现了出色的灵活性。所以，DQN算法适用于大规模或动态迷宫，训练后能够快速找到出口，具备较强的泛化能力。</p>
+<p>代码和报告开源于 <a href="https://github.com/Wuty-zju/zju_ai_sys">https://github.com/Wuty-zju/zju_ai_sys</a></p>
 </div>
 </div>
 </div>
@@ -7557,7 +7560,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2-%E5%9F%BA%E4%BA%8E%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-A*-%E7%AE%97%E6%B3%95">2 基于最佳优先搜索 A* 算法<a class="anchor-link" href="#2-%E5%9F%BA%E4%BA%8E%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2-A*-%E7%AE%97%E6%B3%95">¶</a></h2><p>本实验旨在使用 A* 搜索算法，编程实现机器人在迷宫中自动寻找从起点到终点的最短路径。A* 算法是一种启发式搜索算法，通过计算综合代价 f = g - h 来确定从起点到终点的最优路径，其中 g 表示实际路径代价，h 为曼哈顿距离启发式估计。算法从起点开始，依次选择 f 值最小的节点进行扩展，生成的子节点若未被访问则加入开放列表，并更新其 g 和 f 值。当找到目标节点时，通过回溯父节点重构路径。A算法在结构稳定的已知迷宫中表现优异，能够迅速找到最短路径，但在迷宫规模增大或环境动态变化时，计算量显著增加。以下是详细的代码实现和解释。</p>
+<h2 id="2-%E5%9F%BA%E4%BA%8E-A*-%E7%AE%97%E6%B3%95">2 基于 A* 算法<a class="anchor-link" href="#2-%E5%9F%BA%E4%BA%8E-A*-%E7%AE%97%E6%B3%95">¶</a></h2><p>A* 算法是一种结合了 Dijkstra 算法和启发式搜索优点的路径搜索算法。通过定义 <code>SearchTree</code> 类表示搜索树节点，使用曼哈顿距离作为启发式函数 <code>heuristic_manhattan</code>，并通过 <code>expand_a_star</code> 函数扩展节点，最终在 <code>my_search</code> 函数中实现了从起点到终点的最短路径搜索。测试通过初始化迷宫、执行 A* 搜索、移动机器人并检查目标位置，验证了算法的有效性。</p>
 </div>
 </div>
 </div>
@@ -7602,7 +7605,17 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2-%E5%AE%9A%E4%B9%89%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%90%91%E5%AD%97%E5%85%B8">2.2 定义移动方向字典<a class="anchor-link" href="#2.2-%E5%AE%9A%E4%B9%89%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%90%91%E5%AD%97%E5%85%B8">¶</a></h3><p>move_map 是一个字典，用于将动作（‘u’、‘r’、‘d’、‘l’）映射到相应的坐标变化，可以根据动作更新机器人在迷宫中的位置。</p>
+<h3 id="2.2-%E5%AE%9A%E4%B9%89%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%90%91%E5%AD%97%E5%85%B8">2.2 定义移动方向字典<a class="anchor-link" href="#2.2-%E5%AE%9A%E4%B9%89%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%90%91%E5%AD%97%E5%85%B8">¶</a></h3><p>在这个字典 <code>move_map</code> 中，定义了机器人在迷宫中可以执行的四种基本移动操作，每种操作对应一个方向：</p>
+<ul>
+<li><p><code>'u'</code> (向上)：行坐标减1，列坐标不变。</p>
+</li>
+<li><p><code>'r'</code> (向右)：行坐标不变，列坐标加1。</p>
+</li>
+<li><p><code>'d'</code> (向下)：行坐标加1，列坐标不变。</p>
+</li>
+<li><p><code>'l'</code> (向左)：行坐标不变，列坐标减1。</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7633,24 +7646,31 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.3-%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB">2.3 定义搜索树节点类<a class="anchor-link" href="#2.3-%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB">¶</a></h3><ul>
-<li><p>SearchTree 类表示搜索树中的一个节点，包含了位置、动作、父节点、子节点、实际代价 g 和评估函数值 f 等属性。</p>
+<h3 id="2.3-%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB">2.3 定义搜索树节点类<a class="anchor-link" href="#2.3-%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB">¶</a></h3><p><strong>SearchTree 类</strong>：表示搜索树中的一个节点，包含位置、动作、父节点、子节点、实际代价 g 和评估函数值 f 等属性。</p>
+<ul>
+<li><p>属性：</p>
+<ul>
+<li><p><strong>loc</strong>：节点在迷宫中的位置坐标。</p>
 </li>
-<li><p>loc：节点在迷宫中的位置坐标。</p>
+<li><p><strong>to_this_action</strong>：从父节点到达当前节点所采取的动作。</p>
 </li>
-<li><p>to_this_action：从父节点到达当前节点所采取的动作。</p>
+<li><p><strong>parent</strong>：父节点对象。</p>
 </li>
-<li><p>parent：父节点对象。</p>
+<li><p><strong>children</strong>：子节点列表。</p>
 </li>
-<li><p>children：子节点列表。</p>
+<li><p><strong>g</strong>：从起点到当前节点的实际代价，即路径长度。</p>
 </li>
-<li><p>g：从起点到当前节点的实际代价，即路径长度。</p>
+<li><p><strong>f</strong>：评估函数值，f = g + h，其中 h 是启发式函数的估计代价。</p>
 </li>
-<li><p>f：评估函数值，f = g - h，其中 h 是启发式函数的估计代价。</p>
+</ul>
 </li>
-<li><p>add_child(child) 方法用于向当前节点添加子节点。</p>
+<li><p>方法：</p>
+<ul>
+<li><p><strong>add_child(child)</strong>：用于向当前节点添加子节点。</p>
 </li>
-<li><p>is_leaf() 方法用于判断当前节点是否为叶子节点（没有子节点）。</p>
+<li><p><strong>is_leaf()</strong>：用于判断当前节点是否为叶子节点（没有子节点）。</p>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -7712,9 +7732,9 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="2.4-%E5%AE%9A%E4%B9%89%E5%90%AF%E5%8F%91%E5%BC%8F%E5%87%BD%E6%95%B0">2.4 定义启发式函数<a class="anchor-link" href="#2.4-%E5%AE%9A%E4%B9%89%E5%90%AF%E5%8F%91%E5%BC%8F%E5%87%BD%E6%95%B0">¶</a></h3><ul>
-<li><p>heuristic_manhattan 函数计算当前节点位置 curr 到目标节点位置 goal 的曼哈顿距离，用作启发式估计。</p>
+<li><p><strong>heuristic_manhattan</strong>：计算当前节点位置到目标节点位置的曼哈顿距离，用作启发式估计。</p>
 </li>
-<li><p>曼哈顿距离是指在格子地图中，只能沿着水平方向和竖直方向移动时，从一个点到另一个点的最短路径长度。</p>
+<li><p><strong>曼哈顿距离</strong>：在格子地图中，只能沿水平方向和竖直方向移动时，从一个点到另一个点的最短路径长度。</p>
 </li>
 </ul>
 </div>
@@ -7753,24 +7773,23 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.5-%E5%AE%9A%E4%B9%89%E8%8A%82%E7%82%B9%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0">2.5 定义节点扩展函数<a class="anchor-link" href="#2.5-%E5%AE%9A%E4%B9%89%E8%8A%82%E7%82%B9%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0">¶</a></h3><ul>
-<li><p>expand_a_star 函数用于扩展当前节点的所有可行子节点。</p>
-</li>
-<li><p>首先获取当前节点可以采取的有效动作 valid_actions，即从当前位置可以移动到哪些方向而不撞墙。</p>
-</li>
-<li><p>对于每一个有效动作，计算新的位置 new_loc。</p>
-</li>
-<li><p>如果新的位置没有被访问过（不在 closed_set 中），则：</p>
+<h3 id="2.5-%E5%AE%9A%E4%B9%89%E8%8A%82%E7%82%B9%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0">2.5 定义节点扩展函数<a class="anchor-link" href="#2.5-%E5%AE%9A%E4%B9%89%E8%8A%82%E7%82%B9%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0">¶</a></h3><p><strong>expand_a_star</strong>：用于扩展当前节点的所有可行子节点。</p>
 <ul>
-<li><p>计算从起点到新节点的实际代价 g_new，即当前节点的 g 值加1。</p>
+<li><p>获取当前节点可以采取的有效动作 <code>valid_actions</code>。</p>
 </li>
-<li><p>使用启发式函数计算新节点到目标的估计代价 h_new。</p>
+<li><p>对每个有效动作，计算新的位置 <code>new_loc</code>。</p>
 </li>
-<li><p>计算评估函数值 f_new = g_new + h_new。</p>
+<li><p>如果新位置未被访问过（不在 <code>closed_set</code> 中）：</p>
+<ul>
+<li><p>计算从起点到新节点的实际代价 <code>g_new</code>。</p>
 </li>
-<li><p>创建新节点 child，设置其位置、动作、父节点、g 值和 f 值。</p>
+<li><p>使用启发式函数计算新节点到目标的估计代价 <code>h_new</code>。</p>
 </li>
-<li><p>将新节点添加到开放列表 open_list 中，等待后续的扩展。</p>
+<li><p>计算评估函数值 <code>f_new = g_new + h_new</code>。</p>
+</li>
+<li><p>创建新节点 <code>child</code>，设置其位置、动作、父节点、<code>g</code> 值和 <code>f</code> 值。</p>
+</li>
+<li><p>将新节点添加到开放列表 <code>open_list</code> 中。</p>
 </li>
 </ul>
 </li>
@@ -7829,14 +7848,13 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.6-%E5%AE%9A%E4%B9%89%E8%B7%AF%E5%BE%84%E5%9B%9E%E6%BA%AF%E5%87%BD%E6%95%B0">2.6 定义路径回溯函数<a class="anchor-link" href="#2.6-%E5%AE%9A%E4%B9%89%E8%B7%AF%E5%BE%84%E5%9B%9E%E6%BA%AF%E5%87%BD%E6%95%B0">¶</a></h3><ul>
-<li><p>back_propagation_a_star 函数用于从目标节点开始，沿着父节点指针回溯到起点，构建从起点到目标点的动作序列。</p>
+<h3 id="2.6-%E5%AE%9A%E4%B9%89%E8%B7%AF%E5%BE%84%E5%9B%9E%E6%BA%AF%E5%87%BD%E6%95%B0">2.6 定义路径回溯函数<a class="anchor-link" href="#2.6-%E5%AE%9A%E4%B9%89%E8%B7%AF%E5%BE%84%E5%9B%9E%E6%BA%AF%E5%87%BD%E6%95%B0">¶</a></h3><p><strong>back_propagation_a_star</strong>：用于从目标节点开始，沿着父节点指针回溯到起点，构建从起点到目标点的动作序列。</p>
+<ul>
+<li><p><code>path</code> 列表用于存储动作序列。</p>
 </li>
-<li><p>path 列表用于存储动作序列。</p>
+<li><p>在循环中，将每个节点的 <code>to_this_action</code> 插入到 <code>path</code> 的开头，实现路径的正序。</p>
 </li>
-<li><p>在循环中，将每个节点的 to_this_action 插入到 path 的开头，实现路径的正序。</p>
-</li>
-<li><p>当 node.parent 为 None 时，说明已经回溯到起点，结束循环。</p>
+<li><p>当 <code>node.parent</code> 为 <code>None</code> 时，说明已经回溯到起点，结束循环。</p>
 </li>
 </ul>
 </div>
@@ -7894,6 +7912,43 @@ a.anchor-link {
 <li><p>如果当前节点就是目标节点，则调用 back_propagation_a_star 函数回溯路径，返回动作序列。</p>
 </li>
 <li><p>将当前节点的位置添加到已访问集合 closed_set 中。</p>
+</li>
+<li><p>扩展当前节点，生成其子节点，并将新的子节点添加到开放列表中。</p>
+</li>
+<li><p>如果开放列表为空但未找到目标节点，则返回空列表，表示无解。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93">A* 搜索算法总结<a class="anchor-link" href="#A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93">¶</a></h3><p><strong>my_search 函数</strong>：实现了 A* 搜索算法，用于在迷宫中搜索从起点到终点的最短路径。</p>
+<ul>
+<li><p>主要步骤：</p>
+<ul>
+<li><p>初始化起点 <code>start</code> 和目标点 <code>goal</code>。</p>
+</li>
+<li><p>创建起点节点 <code>root</code>，设置其 <code>g</code> 值为 0，<code>f</code> 值为启发式估计值。</p>
+</li>
+<li><p>初始化开放列表 <code>open_list</code> 和已访问节点集合 <code>closed_set</code>。</p>
+</li>
+</ul>
+</li>
+<li><p>主循环：</p>
+<ul>
+<li><p>从开放列表中选择 <code>f</code> 值最小的节点 <code>current_node</code>，并将其从开放列表中移除。</p>
+</li>
+<li><p>如果当前节点是目标节点，调用 <code>back_propagation_a_star</code> 函数回溯路径，返回动作序列。</p>
+</li>
+<li><p>将当前节点的位置添加到已访问集合 <code>closed_set</code> 中。</p>
 </li>
 <li><p>扩展当前节点，生成其子节点，并将新的子节点添加到开放列表中。</p>
 </li>
@@ -7968,17 +8023,15 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="2.8-%E6%B5%8B%E8%AF%95%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">2.8 测试搜索算法<a class="anchor-link" href="#2.8-%E6%B5%8B%E8%AF%95%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">¶</a></h3><ul>
-<li><p>创建一个 10x10 的迷宫 maze。</p>
+<li><p><strong>初始化迷宫</strong>：设置迷宫大小为。</p>
 </li>
-<li><p>调用 my_search(maze) 函数，使用 A* 算法搜索从起点到终点的最优路径，返回动作序列 path_2。</p>
+<li><p><strong>执行 A* 搜索</strong>：使用 <code>my_search</code> 函数在迷宫中寻找从起点到终点的最短路径，并打印搜索到的路径（动作序列）。</p>
 </li>
-<li><p>打印搜索到的路径。</p>
+<li><p><strong>移动机器人</strong>：根据 A* 算法返回的路径依次移动机器人。</p>
 </li>
-<li><p>让机器人按照搜索到的动作序列移动，通过 maze.move_robot(action) 执行动作。</p>
+<li><p><strong>检查目标位置</strong>：检查机器人是否到达目标位置，并打印成功信息。</p>
 </li>
-<li><p>检查机器人当前的位置是否等于目标位置，如果是，则打印“恭喜你，到达了目标点”。</p>
-</li>
-<li><p>打印迷宫的当前状态，包括机器人的位置和路径。</p>
+<li><p><strong>输出迷宫状态</strong>：输出当前迷宫的状态，包括机器人的位置和路径。</p>
 </li>
 </ul>
 </div>
@@ -8049,7 +8102,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3-%E5%9F%BA%E4%BA%8E-DQN-%E7%AE%97%E6%B3%95">3 基于 DQN 算法<a class="anchor-link" href="#3-%E5%9F%BA%E4%BA%8E-DQN-%E7%AE%97%E6%B3%95">¶</a></h2><p>本实验旨在使用深度强化学习中的深度Q网络（DQN）算法，编程实现机器人在迷宫中自动寻找从起点到终点的最优路径。在基于DQN算法的机器人迷宫求解实验中，定义了一个继承自 <code>TorchRobot</code> 的 <code>Robot</code> 类，并在初始化时设置迷宫的奖励机制，确保在较大迷宫中，奖励值足够大以引导机器人到达终点。具体而言，撞墙时的惩罚值随迷宫大小增大，并非固定的奖励值大小，到达终点的奖励值基于迷宫大小调整，每步的默认奖励为微小正值，随迷宫大小而增大。实验中设置了合理的奖励机制，确保机器人能够在训练过程中得到正确的反馈。通过绘制训练损失曲线，可以观察到模型在训练过程中不断优化。最终，机器人能够成功地从起点到达终点，实现了实验目标。以下是详细的代码实现和解释。</p>
+<h2 id="3-%E5%9F%BA%E4%BA%8E-DQN-%E7%AE%97%E6%B3%95">3 基于 DQN 算法<a class="anchor-link" href="#3-%E5%9F%BA%E4%BA%8E-DQN-%E7%AE%97%E6%B3%95">¶</a></h2><p>本实验使用深度强化学习中的深度Q网络（DQN）算法，编程实现机器人在迷宫中自动寻找从起点到终点的最优路径。定义了一个继承自 <code>TorchRobot</code> 的 <code>Robot</code> 类，并在初始化时设置迷宫的奖励机制，确保在较大迷宫中，奖励值足够大以引导机器人到达终点。训练过程中，机器人通过经验回放和 Q 值更新，不断优化策略。测试部分验证了机器人能够成功找到出口。最终，通过绘制训练损失曲线，观察到模型在训练过程中不断优化，机器人成功实现了从起点到终点的路径规划。</p>
 </div>
 </div>
 </div>
@@ -8097,49 +8150,39 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="3.2-%E5%AE%9A%E4%B9%89%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B1%BB">3.2 定义机器人类<a class="anchor-link" href="#3.2-%E5%AE%9A%E4%B9%89%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%B1%BB">¶</a></h3><ul>
-<li><p>定义了一个 Robot 类，继承自 TorchRobot 类。</p>
+<li><p><strong>Robot 类</strong>：继承自 <code>TorchRobot</code> 类。</p>
 </li>
-<li><p><strong>init</strong> 方法用于初始化机器人对象，设置迷宫环境和模型参数。</p>
+<li><p><strong>初始化方法</strong>：</p>
+<ul>
+<li><p>调用父类的初始化方法，确保父类属性和方法被正确初始化。</p>
 </li>
-<li><p>使用 super() 调用父类的初始化方法，确保父类的属性和方法被正确初始化。</p>
+<li><p>设置迷宫的奖励机制，包括撞墙惩罚、到达终点奖励和默认奖励，这些值根据迷宫大小进行调整。</p>
 </li>
-<li><p>调用 maze.set_reward() 方法，设置迷宫的奖励机制，包括撞墙惩罚、到达终点奖励和默认奖励，这些值根据迷宫大小进行调整。</p>
+<li><p>保存迷宫对象，设置探索率 <code>epsilon</code> 为 0，表示完全利用策略。</p>
 </li>
-<li><p>将迷宫对象保存为 self.maze，方便后续使用。</p>
+<li><p>开启全图视野，构建经验回放池，加速训练过程。</p>
 </li>
-<li><p>设置探索率 epsilon 为 0，表示在训练和测试中采用贪心策略，始终选择当前估计最优的动作。</p>
+<li><p>将评估网络和目标网络迁移到指定的计算设备上。</p>
 </li>
-<li><p>设置计算设备 self.device，如果有可用的 GPU（CUDA），则使用 GPU，否则使用 CPU。</p>
-</li>
-<li><p>调用 self.memory.build_full_view(maze=maze) 开启全图视野，构建经验回放池，这样可以加速训练过程。</p>
-</li>
-<li><p>将评估网络 eval_model 和目标网络 target_model 迁移到指定的计算设备上。</p>
-</li>
-<li><p>调用 self.train() 方法开始训练，并将训练过程中产生的损失值保存到 self.loss_list 中。</p>
+<li><p>调用 <code>self.train()</code> 方法开始训练，并将训练过程中产生的损失值保存到 <code>self.loss_list</code> 中。</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</li>
+</ul>
 <h3 id="3.3-%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E5%87%BD%E6%95%B0">3.3 定义训练函数<a class="anchor-link" href="#3.3-%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E5%87%BD%E6%95%B0">¶</a></h3><ul>
-<li><p>train 方法用于训练模型，直到机器人能够成功找到迷宫的出口。</p>
+<li><p><strong>train 方法</strong>：用于训练模型，直到机器人能够成功找到迷宫的出口。</p>
 </li>
-<li><p>初始化一个空的 loss_list，用于保存每次训练的损失值。</p>
-</li>
-<li><p>设置批次大小 batch_size 为经验回放池的大小，即每次训练时使用所有的经验数据。</p>
-</li>
-<li><p>记录训练开始的时间 start，用于计算总的训练时间。</p>
-</li>
-<li><p>在 while True 循环中，不断执行以下步骤：</p>
+<li><p><strong>主要步骤</strong>：</p>
 <ul>
-<li><p>调用 _learn(batch=batch_size) 方法，从经验回放池中采样数据进行训练，返回当前的损失值，并将其添加到 loss_list。</p>
+<li><p>初始化一个空的 <code>loss_list</code>，用于保存每次训练的损失值。</p>
+</li>
+<li><p>设置批次大小 <code>batch_size</code> 为经验回放池的大小。</p>
+</li>
+<li><p>记录训练开始的时间 <code>start</code>。</p>
+</li>
+<li><p>在 <code>while True</code> 循环中：</p>
+<ul>
+<li><p>调用 <code>_learn(batch=batch_size)</code> 方法，从经验回放池中采样数据进行训练，返回当前的损失值，并将其添加到 <code>loss_list</code>。</p>
 </li>
 <li><p>重置机器人的位置，准备进行测试。</p>
 </li>
@@ -8147,59 +8190,43 @@ a.anchor-link {
 </li>
 </ul>
 </li>
-<li><p>这样设计的目的是在训练过程中，不断更新模型参数，直到机器人学会了如何在迷宫中找到出口。</p>
+</ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="3.4-%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95">3.4 定义训练更新方法<a class="anchor-link" href="#3.4-%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95">¶</a></h3><ul>
-<li><p>train_update 方法用于在训练过程中，根据当前策略选择动作并执行，获取相应的奖励。</p>
+<li><p><strong>train_update 方法</strong>：用于在训练过程中，根据当前策略选择动作并执行，获取相应的奖励。</p>
 </li>
-<li><p>首先调用 self.sense_state() 获取当前状态（机器人的位置坐标）。</p>
+<li><p><strong>主要步骤</strong>：</p>
+<ul>
+<li><p>获取当前状态（机器人的位置）。</p>
 </li>
-<li><p>调用 self._choose_action(state) 方法，根据当前状态选择动作，使用的是 epsilon-greedy 策略（在父类 TorchRobot 中实现）。</p>
+<li><p>根据当前状态选择动作，使用 epsilon-greedy 策略。</p>
 </li>
-<li><p>执行选定的动作，调用 self.maze.move_robot(action)，并获取执行后的奖励 reward。</p>
-</li>
-<li><p>更新 epsilon 的代码被注释掉，因为在初始化时已经将 epsilon 固定为 0，不再需要更新。</p>
+<li><p>执行选择的动作，并获取对应的奖励。</p>
 </li>
 <li><p>返回选择的动作和获得的奖励。</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</li>
+</ul>
 <h3 id="3.5-%E5%AE%9A%E4%B9%89%E6%B5%8B%E8%AF%95%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95">3.5 定义测试更新方法<a class="anchor-link" href="#3.5-%E5%AE%9A%E4%B9%89%E6%B5%8B%E8%AF%95%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95">¶</a></h3><ul>
-<li><p>test_update 方法用于在测试过程中，根据当前策略选择动作并执行，获取相应的奖励。</p>
+<li><p><strong>test_update 方法</strong>：用于在测试过程中，根据当前策略选择动作并执行，获取相应的奖励。</p>
 </li>
-<li><p>获取当前状态 state，并将其转换为 PyTorch 的张量形式，确保数据类型和设备与模型匹配。</p>
+<li><p><strong>主要步骤</strong>：</p>
+<ul>
+<li><p>获取当前状态，并转换为 PyTorch 的张量形式，确保数据类型和设备与模型匹配。</p>
 </li>
-<li><p>将模型设置为评估模式 self.eval_model.eval()，防止在测试时更新模型参数。</p>
+<li><p>将模型设置为评估模式，停止参数更新。</p>
 </li>
-<li><p>使用 torch.no_grad() 上下文管理器，停止计算梯度，加快推理速度。</p>
+<li><p>使用 <code>torch.no_grad()</code> 上下文管理器，停止计算梯度，加快推理速度。</p>
 </li>
-<li><p>将状态输入到评估模型 self.eval_model(state)，获取对应的 Q 值 q_value。</p>
+<li><p>将状态输入到评估模型，获取对应的 Q 值。</p>
 </li>
-<li><p>根据 Q 值选择最优动作，这里选择 Q 值最小的动作（因为在迷宫中，奖励是负值，越小越好）。</p>
-</li>
-<li><p>执行选择的动作，调用 self.maze.move_robot(action)，获取执行后的奖励 reward。</p>
+<li><p>根据 Q 值选择最优动作，执行选择的动作，并获取对应的奖励。</p>
 </li>
 <li><p>返回选择的动作和获得的奖励。</p>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -8350,19 +8377,23 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="3.6-%E8%BF%B7%E5%AE%AB%E5%92%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%A5%E5%8F%8A%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95">3.6 迷宫和机器人初始化以及路径测试<a class="anchor-link" href="#3.6-%E8%BF%B7%E5%AE%AB%E5%92%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%A5%E5%8F%8A%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95">¶</a></h3><ul>
-<li><p>设置迷宫的大小 maze_size ，创建一个迷宫对象 maze。</p>
+<li><p><strong>设置迷宫大小</strong>：设置 <code>maze_size</code> 并创建一个迷宫对象 <code>maze</code>。</p>
 </li>
-<li><p>创建一个机器人对象 robot，并将迷宫传入其中。</p>
+<li><p><strong>创建机器人对象</strong>：创建一个 <code>Robot</code> 对象，并将迷宫传入其中。</p>
 </li>
-<li><p>打印迷宫的奖励机制，以便了解各个动作的奖励值。</p>
+<li><p><strong>打印奖励机制</strong>：打印迷宫的奖励机制，以便了解各个动作对应的奖励值。</p>
 </li>
-<li><p>重置机器人的位置，准备进行测试。</p>
+<li><p><strong>重置机器人位置</strong>：重置机器人的位置，准备进行测试。</p>
 </li>
-<li><p>在限制的步数内（迷宫面积）循环，调用 robot.test_update() 执行动作并获取奖励。</p>
+<li><p><strong>执行测试</strong>：</p>
+<ul>
+<li><p>在限制的步数内（迷宫面积）循环，调用 <code>robot.test_update()</code> 执行动作并获取奖励。</p>
 </li>
 <li><p>打印每一步的动作和对应的奖励。</p>
 </li>
-<li><p>如果在某一步中，获得的奖励等于到达终点的奖励，则表示机器人成功找到出口，打印提示信息并退出循环。</p>
+<li><p>如果在某一步中获得的奖励等于到达终点的奖励，则表示机器人成功找到出口，打印提示信息并退出循环。</p>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -8433,18 +8464,22 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="3.7-DQN%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E5%B9%B6%E7%BB%98%E5%88%B6%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C">3.7 DQN算法训练并绘制训练结果<a class="anchor-link" href="#3.7-DQN%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E5%B9%B6%E7%BB%98%E5%88%B6%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C">¶</a></h3><ul>
-<li><p>设置训练 epoch training_per_epoch</p>
+<h3 id="3.7-DQN-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E5%B9%B6%E7%BB%98%E5%88%B6%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C">3.7 DQN 算法训练并绘制训练结果<a class="anchor-link" href="#3.7-DQN-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E5%B9%B6%E7%BB%98%E5%88%B6%E8%AE%AD%E7%BB%83%E7%BB%93%E6%9E%9C">¶</a></h3><ul>
+<li><p><strong>设置训练参数</strong>：设置训练轮数 <code>epoch</code> 和每轮训练的步数 <code>training_per_epoch</code>。</p>
 </li>
-<li><p>创建一个 Runner 实例 runner，用于管理训练过程。</p>
+<li><p><strong>创建 Runner 实例</strong>：创建一个 <code>Runner</code> 实例 <code>runner</code>，用于管理训练过程。</p>
 </li>
-<li><p>调用 runner.run_training(epoch, training_per_epoch) 开始训练。</p>
+<li><p><strong>开始训练</strong>：调用 <code>runner.run_training(epoch, training_per_epoch)</code> 开始训练。</p>
 </li>
-<li><p>训练完成后，绘制训练过程中损失值的变化曲线。</p>
+<li><p><strong>绘制损失曲线</strong>：</p>
+<ul>
+<li><p>使用 <code>plt.plot(robot.loss_list)</code> 绘制训练过程中损失值的变化曲线。</p>
 </li>
-<li><p>使用 plt.plot(robot.loss_list) 绘制损失值列表，添加坐标轴标签和标题，然后显示图像。</p>
+<li><p>添加坐标轴标签和标题，显示图像。</p>
 </li>
-<li><p>调用 runner.plot_results() 显示完整的训练结果，包括机器人在迷宫中的路径和策略效果。</p>
+</ul>
+</li>
+<li><p><strong>显示训练结果</strong>：调用 <code>runner.plot_results()</code> 显示完整的训练结果，包括机器人在迷宫中的路径和策略效果。</p>
 </li>
 </ul>
 </div>
