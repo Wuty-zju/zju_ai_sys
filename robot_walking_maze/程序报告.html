@@ -7896,41 +7896,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.7-%E5%AE%9A%E4%B9%89-A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">2.7 定义 A* 搜索算法<a class="anchor-link" href="#2.7-%E5%AE%9A%E4%B9%89-A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">¶</a></h3><ul>
-<li><p>my_search 函数实现了 A* 搜索算法。</p>
-</li>
-<li><p>初始化起点 start 和目标点 goal。</p>
-</li>
-<li><p>创建起点节点 root，设置其 g 值为 0，f 值为启发式估计值。</p>
-</li>
-<li><p>初始化开放列表 open_list 和已访问节点集合 closed_set。</p>
-</li>
-<li><p>在主循环中，执行以下步骤：</p>
-<ul>
-<li><p>从开放列表中选择 f 值最小的节点 current_node，并将其从开放列表中移除。</p>
-</li>
-<li><p>如果当前节点就是目标节点，则调用 back_propagation_a_star 函数回溯路径，返回动作序列。</p>
-</li>
-<li><p>将当前节点的位置添加到已访问集合 closed_set 中。</p>
-</li>
-<li><p>扩展当前节点，生成其子节点，并将新的子节点添加到开放列表中。</p>
-</li>
-<li><p>如果开放列表为空但未找到目标节点，则返回空列表，表示无解。</p>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93">A* 搜索算法总结<a class="anchor-link" href="#A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93">¶</a></h3><p><strong>my_search 函数</strong>：实现了 A* 搜索算法，用于在迷宫中搜索从起点到终点的最短路径。</p>
+<h3 id="2.7-%E5%AE%9A%E4%B9%89-A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">2.7 定义 A* 搜索算法<a class="anchor-link" href="#2.7-%E5%AE%9A%E4%B9%89-A*-%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">¶</a></h3><p><strong>my_search 函数</strong>：实现了 A* 搜索算法，用于在迷宫中搜索从起点到终点的最短路径。</p>
 <ul>
 <li><p>主要步骤：</p>
 <ul>
